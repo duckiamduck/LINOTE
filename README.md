@@ -6,6 +6,8 @@
 <img src="https://img.shields.io/badge/nedb-%5E1.8.0-orange"/>
 </center>
 ```
+<img src="[https://img.shields.io/badge/nedb-%5E1.8.0-orange](https://img-blog.csdnimg.cn/direct/dfe64a6463224813b67b4c0ee78c8ad0.png)"/>
+
 electron-notes
 ├── public
 │   ├── css
