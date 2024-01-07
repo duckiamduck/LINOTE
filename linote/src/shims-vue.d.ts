@@ -25,7 +25,7 @@ interface DBNotes {
 interface ListDbNotes extends DBNotes {
   remove?: boolean;
 }
-
+/**泛型类型，它接收一个类型参数 T，然后返回一个新的类型。*/
 type QueryDB<T> = {
   [K in keyof T]?: T[K];
 };
