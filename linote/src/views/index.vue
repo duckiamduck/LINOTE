@@ -342,7 +342,6 @@ export default defineComponent({
       background-color: transparent;
       font-size: 14px;
       padding: 0 18px;
-
     }
   }
   .search-button {
@@ -365,7 +364,6 @@ export default defineComponent({
   &:active {
     opacity: 1;
   }
- 
 }
 
 // 减去搜索和外边距高度

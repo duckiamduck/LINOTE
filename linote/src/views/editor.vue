@@ -273,12 +273,11 @@ export default defineComponent({
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color:pink;
+    background-color: pink;
     opacity: 0;
     bottom: 0;
     left: 0;
     transition: all 0.4s;
-
   }
   .options-content {
     position: absolute;
@@ -347,6 +346,5 @@ export default defineComponent({
     opacity: 1;
     transition: all 0.4s;
   }
-} 
+}
 </style>
-  

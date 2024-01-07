@@ -27,9 +27,9 @@ function createWindow() {
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    if (!process.env.IS_TEST) 
-    win.webContents.openDevTools();
-  alert('hello')
+    if (!process.env.IS_TEST)
+      // win.webContents.openDevTools();
+console.log('!process.env.IS_TEST')
   } else {
     createProtocol('app');
     win.loadURL(winURL);

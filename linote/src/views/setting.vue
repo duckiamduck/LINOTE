@@ -76,7 +76,7 @@
         </div>
       </div>
     </div>
-          <div class="block" style="display: none;">
+    <div class="block" style="display: none;">
       <p class="block-title">导入导出</p>
       <div class="block-content">
         <div class="block-line link-style">
@@ -190,7 +190,6 @@ export default defineComponent({
     const currentYear = new Date().getFullYear();
     const version = remote.app.getVersion();
     const appDataPath = remote.app.getPath('appData');
-
 
     const copyEmail = () => {
       if (copyStatus.value) return;

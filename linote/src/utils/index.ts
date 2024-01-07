@@ -37,7 +37,7 @@ export const createBrowserWindow = (bwopt = {}, url = '/', devTools = true): Bro
   childrenWindow = new remote.BrowserWindow(bwopt);
 
   if (process.env.NODE_ENV === 'development' && devTools) {
-    childrenWindow.webContents.openDevTools();
+    // childrenWindow.webContents.openDevTools();
   }
   childrenWindow.loadURL(`${winURL}/#${url}`);
   childrenWindow.on('closed', () => {
