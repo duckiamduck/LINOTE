@@ -60,6 +60,8 @@ electron-notes
 yarn electron:serve
 ```
 
+https://juejin.cn/user/3650034335225112/posts 学习原文章作者掘金主页
+
 ## 打包
 ```
 yarn electron:build
