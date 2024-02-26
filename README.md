@@ -7,7 +7,7 @@
 </center>
 ```
 <img src="https://img-blog.csdnimg.cn/direct/dfe64a6463224813b67b4c0ee78c8ad0.png"/>
-
+<img src="https://img-blog.csdnimg.cn/direct/ace55f1e69d64a0296e8011ded0649c5.png"/>
 electron-notes
 ├── public
 │   ├── css
