@@ -1,4 +1,10 @@
 <template>
+  <div ref="test">
+    <div id="preview_box2">
+      <img v-if="previewImageUrl" :src="previewImageUrl" alt="Preview">
+    </div>
+    </div>
+    
   <div
     ref="editor"
     class="editor-layout module-editor empty-content"
@@ -9,23 +15,30 @@
     placeholder="记笔记..."
     @paste.prevent="paste"
     @input="changeEditorContent"
-  ></div>
+  >
+  
+</div>
+
   <section class="bottom-editor-tools">
     <template v-for="item in bottomIcons" :key="item.name">
       <button class="icon" :title="item.title" @click="editorIconHandle($event, item.name)">
         <i class="iconfont" :class="item.icon"></i>
       </button>
     </template>
-  </section>
-  <div ref="test"></div>
-</template>
 
+    
+<!--     
+    <i class="icon iconfont">&#xe702;</i>
+    <input style="width: 50px;"  class="icon" title="上传图片"  type="file" accept="image/*"  @change="handleImageUpload" > -->
+
+  </section>
+
+</template>
 <script lang="ts">
 import { defineComponent, onMounted, ref, Ref, watch } from 'vue';
 import { debounce } from '@/utils';
 import { editorIcons } from '@/config';
 import { exeConfig } from '@/store/exeConfig.state';
-
 export default defineComponent({
   props: {
     content: String,
@@ -36,7 +49,6 @@ export default defineComponent({
     let editor: Ref<HTMLDivElement | null> = ref(null);
     const bottomIcons = editorIcons;
     const editorContent: Ref<string | undefined> = ref('');
-
     watch(props, nv => {
       if (!editorContent.value) {
         editorContent.value = nv.content;
@@ -46,6 +58,23 @@ export default defineComponent({
     onMounted(() => {
       focus();
     });
+    
+const previewImageUrl = ref('')
+const handleImageUpload = (event: { target: any; }) => {
+  const input = event.target;
+  const files = input.files;
+
+  if (files && files.length > 0) {
+    const file = files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      previewImageUrl.value = reader.result as string;
+    };
+
+    reader.readAsDataURL(file);
+  }
+};
 
     const focus = () => {
       const range = document.createRange();
@@ -71,20 +100,36 @@ export default defineComponent({
       console.log(pasteText);
       document.execCommand('insertText', false, pasteText);
     };
-
     return {
       editor,
       editorIconHandle,
       bottomIcons,
       changeEditorContent,
       paste,
-      editorContent
+      editorContent,
+      previewImageUrl,
+      handleImageUpload
     };
   }
 });
 </script>
 
 <style lang="less" scoped>
+
+#img_label2 {
+  background-color: #f2d547;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px;
+}
+#preview_box2 img {
+  width: 200px;
+  position: fixed;
+  z-index: 9999; 
+  top: 10px;
+  left: 20px;
+  background-color: red;
+}
 .editor-layout {
   width: 100%;
   height: 100%;

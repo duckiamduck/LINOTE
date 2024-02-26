@@ -221,6 +221,13 @@
       "font_class": "add",
       "unicode": "e62b",
       "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "3703982",
+      "name": "emoji",
+      "font_class": "emoji",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
     }
   ]
 }

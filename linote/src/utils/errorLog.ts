@@ -3,10 +3,8 @@ import dayjs from 'dayjs';
 import fs from 'fs-extra';
 import os from 'os';
 import { remote } from 'electron';
-
 import path from 'path';
 import useMessage from '@/components/message';
-
 function getShortStack(stack?: string): string {
   const splitStack = stack?.split('\n    ');
   if (!splitStack) return '';
@@ -14,7 +12,6 @@ function getShortStack(stack?: string): string {
   for (const line of splitStack) {
     // 其他信息
     if (line.includes('bundler')) continue;
-
     // 只保留错误文件信息
     if (line.includes('?!.')) {
       newStack.push(line.replace(/webpack-internal:\/\/\/\.\/node_modules\/.+\?!/, ''));

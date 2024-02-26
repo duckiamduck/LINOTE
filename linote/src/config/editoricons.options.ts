@@ -43,6 +43,7 @@ const editorIcons = [
     //   title: '图片',
     //   icon: 'icon-image'
   }
+
 ];
 
 export default editorIcons;

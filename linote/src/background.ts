@@ -24,17 +24,18 @@ protocol.registerSchemesAsPrivileged([
 
 function createWindow() {
   win = new BrowserWindow(browserWindowOption());
-
+  win.webContents.openDevTools();
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
     if (!process.env.IS_TEST)
-      // win.webContents.openDevTools();
+      win.webContents.openDevTools();
 console.log('!process.env.IS_TEST')
   } else {
     createProtocol('app');
+    win.webContents.openDevTools();
     win.loadURL(winURL);
   }
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   win.on('closed', () => {
     win = null;
@@ -51,6 +52,7 @@ app.on('activate', () => {
   if (win === null) {
     createWindow();
   }
+  
 });
 
 app.on('ready', async () => {
